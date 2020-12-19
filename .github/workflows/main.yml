@@ -1,8 +1,8 @@
-name: learn-github-actions
+name: check-for-ps
 on: [workflow_dispatch]
 jobs:
   main:
-    runs-on: ubuntu-latest
+    runs-on: ghcr.io/gowerc/pschecker:latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo hello
+      - run: python3.9 pschecker.py
