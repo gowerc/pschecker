@@ -8,3 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: python3.9 pschecker.py
+        env: # Or as an environment variable
+            TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+            TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+            TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
+            TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}

@@ -1,8 +1,21 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from datetime import datetime, time
+from twilio.rest import Client
+
+
+
+def is_time_between(begin_time, end_time):
+    check_time = datetime.utcnow().time()
+    if begin_time < end_time:
+        return check_time >= begin_time and check_time <= end_time
+    else: 
+        return check_time >= begin_time or check_time <= end_time
+
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox')
@@ -93,4 +106,23 @@ driver.close()
 
 
 print(results)
+
+RESULTS_STRING = "\n".join([ "{} = {}".format(i,j) for i,j in results.items()])
+MESSAGE_STRING = "Found a PlayStation !\n" + RESULTS_STRING
+
+FOUND_PLAYSTATION = any([j for i,j in results.items()])
+CAN_SEND_MESSAGE = not is_time_between(time(11,00), time(7,30))
+
+#if FOUND_PLAYSTATION and CAN_SEND_MESSAGE:
+if True:
+    client = Client(
+        os.environ['TWILIO_ACCOUNT_SID'], 
+        os.environ['TWILIO_AUTH_TOKEN']
+    )
+    
+    message = client.messages.create(
+        body=MESSAGE_STRING,
+        from_=os.environ['TWILIO_FROM_NUMBER'],
+        to=os.environ['TWILIO_TO_NUMBER']
+    )
 
