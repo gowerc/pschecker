@@ -2,7 +2,8 @@ name: check-for-ps
 on: [workflow_dispatch]
 jobs:
   main:
-    runs-on: ghcr.io/gowerc/pschecker:latest
+    container:
+      image: ghcr.io/gowerc/pschecker:latest
     steps:
       - uses: actions/checkout@v2
       - run: python3.9 pschecker.py
