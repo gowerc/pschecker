@@ -2,6 +2,7 @@ name: check-for-ps
 on: [workflow_dispatch]
 jobs:
   main:
+    runs-on: ubuntu-20.04
     container:
       image: ghcr.io/gowerc/pschecker:latest
     steps:
