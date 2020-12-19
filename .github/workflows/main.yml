@@ -1,5 +1,8 @@
 name: check-for-ps
-on: [workflow_dispatch]
+on:
+  schedule:
+    - cron: "*/15 7-23 * * *"
+  workflow_dispatch:
 jobs:
   main:
     runs-on: ubuntu-20.04

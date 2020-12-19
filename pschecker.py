@@ -111,10 +111,9 @@ RESULTS_STRING = "\n".join([ "{} = {}".format(i,j) for i,j in results.items()])
 MESSAGE_STRING = "Found a PlayStation !\n" + RESULTS_STRING
 
 FOUND_PLAYSTATION = any([j for i,j in results.items()])
-CAN_SEND_MESSAGE = not is_time_between(time(11,00), time(7,30))
+CAN_SEND_MESSAGE =  is_time_between(time(7,00), time(23,00))
 
-#if FOUND_PLAYSTATION and CAN_SEND_MESSAGE:
-if True:
+if FOUND_PLAYSTATION and CAN_SEND_MESSAGE:
     client = Client(
         os.environ['TWILIO_ACCOUNT_SID'], 
         os.environ['TWILIO_AUTH_TOKEN']
