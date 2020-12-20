@@ -1,6 +1,6 @@
 # PlayStation Stock Checker
 
-Small project to routinely scan main UK PlayStation Merchants and send a text alert if it finds one in stock. 
+Small project to routinely to see if a Playstation 5 is available within the UK and send a text alert if it finds one in stock. 
 
 Current retailers checked are:
 - John Lewis
