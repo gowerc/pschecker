@@ -1,13 +1,13 @@
 name: check-for-ps
 on:
   schedule:
-    - cron: "15,45 7-22 * * *"
+    - cron: "*/20 7-22 * * *"
   workflow_dispatch:
 jobs:
   main:
     runs-on: ubuntu-20.04
     steps:
-      - uses: docker://gcr.io/gowerc/pschecker:latest
+      - uses: docker://ghcr.io/gowerc/pschecker:latest
         env: 
             TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
