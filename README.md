@@ -11,7 +11,7 @@ Current retailers checked are:
 
 ## Usage
 
-The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself (making sure to edit the Twilio environment variables for your account) as follows:
+The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself (making sure to edit the Twilio environment variables for your account) by running the following:
 
 ```
 docker pull ghcr.io/gowerc/pschecker:latest
@@ -23,4 +23,4 @@ docker run --rm \
     ghcr.io/gowerc/pschecker:latest
 ```
 
-Note that you will need to set up a cron job or some other reoccurring process to continuously check for stock
+Note that running the code as shown above only performs a single stock check. If you wish to continuously check for stock you will need to set up a cron job or some other reoccurring process.
