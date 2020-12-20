@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
+      - 'pschecker.py'
     branches:    
       - main
 
