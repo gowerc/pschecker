@@ -6,12 +6,9 @@ on:
 jobs:
   main:
     runs-on: ubuntu-20.04
-    container:
-      image: ghcr.io/gowerc/pschecker:latest
     steps:
-      - uses: actions/checkout@v2
-      - run: python3.9 pschecker.py
-        env: # Or as an environment variable
+      - uses: docker://gcr.io/gowerc/pschecker:latest
+        env: 
             TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
             TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}

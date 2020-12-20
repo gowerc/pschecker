@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException
 from datetime import datetime, time
 from twilio.rest import Client
 
-PAGETIMEOUT = 15
+PAGETIMEOUT = 15 
 
 
 def get_chrome_driver():
