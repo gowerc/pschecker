@@ -1,6 +1,6 @@
 # PlayStation Stock Checker
 
-Small project to routinely scan main UK PlayStation Merchants. Sends alert text if it finds one in stock. Based on Python, Selenium, Twilio & GitHub Actions.
+Small project to routinely scan main UK PlayStation Merchants and send a text alert if it finds one in stock. 
 
 Current retailers checked are:
 - John Lewis
@@ -23,3 +23,8 @@ docker run --rm \
 ```
 
 Note that running the code as shown above only performs a single stock check. If you wish to continuously check for stock you will need to set up a cron job or some other reoccurring process.
+
+
+## About 
+
+Core code uses Selenium controlled by Python, sends text alerts using Twilio and runs a cron job via GitHub Actions.
