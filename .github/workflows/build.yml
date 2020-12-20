@@ -1,11 +1,12 @@
 name: 'build'
 
+
 on:
   push:
-    branches:
-    - master
     paths:
     - 'Dockerfile'
+    branches:
+    - master
 
 jobs:
   build:
