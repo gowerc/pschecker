@@ -9,6 +9,8 @@ Current retailers checked are:
 - Argos
 - Currys
 
+Setup to only send notifications between 7am and 11pm. 
+
 ## Usage
 
 The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself (making sure to edit the Twilio environment variables for your account) by running the following:
@@ -27,4 +29,4 @@ Note that running the code as shown above only performs a single stock check. If
 
 ## About 
 
-Core code uses Selenium controlled by Python, sends text alerts using Twilio and runs a cron job via GitHub Actions.
+Core code uses Selenium controlled by Python, sends text alerts using Twilio, runs a cron job via GitHub Actions and stores the docker image in the GitHub Container Registry.
