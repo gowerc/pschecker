@@ -126,4 +126,3 @@ if __name__ == "__main__":
         RESULTS_STRING = "\n".join(["{} = {}".format(i, j) for i, j in results.items()])
         MESSAGE_STRING = "Found a PlayStation !\n" + RESULTS_STRING
         send_message(MESSAGE_STRING)
-
