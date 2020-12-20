@@ -1,7 +1,7 @@
 FROM python:3.9-slim
  
 # Install utilities
-RUN apt-get -y update; apt-get install -y wget gnupg curl unzip 
+RUN apt-get -y update; apt-get install -y wget gnupg curl unzip
 
 # Install google chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -

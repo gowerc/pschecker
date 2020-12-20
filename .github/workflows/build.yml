@@ -6,7 +6,7 @@ on:
     paths:
     - 'Dockerfile'
     branches:
-    - master
+    - ['main']
 
 jobs:
   build:
