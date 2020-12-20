@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException
 from datetime import datetime, time
 from twilio.rest import Client
 
-PAGETIMEOUT = 15 
+PAGETIMEOUT = 15
 
 
 def get_chrome_driver():
@@ -126,3 +126,4 @@ if __name__ == "__main__":
         RESULTS_STRING = "\n".join(["{} = {}".format(i, j) for i, j in results.items()])
         MESSAGE_STRING = "Found a PlayStation !\n" + RESULTS_STRING
         send_message(MESSAGE_STRING)
+
