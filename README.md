@@ -11,13 +11,13 @@ Current retailers checked are:
 
 ## Usage
 
-The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself as follows:
+The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself (making sure to edit the Twilio environment variables for your account) as follows:
 
 ```
 docker pull ghcr.io/gowerc/pschecker:latest
 docker run --rm \
-    --env TWILIO_FROM_NUMBER="<You Twilio phone number" \
-    --env TWILIO_TO_NUMBER="<Mobile number to receive notifications" \
+    --env TWILIO_FROM_NUMBER="<Your Twilio phone number"> \
+    --env TWILIO_TO_NUMBER="<Mobile number to receive notifications"> \
     --env TWILIO_ACCOUNT_SID="<Your Tilio account SID>" \
     --env TWILIO_AUTH_TOKEN="<Your Twilio Auth Token>" \
     ghcr.io/gowerc/pschecker:latest
