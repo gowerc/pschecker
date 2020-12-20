@@ -1,0 +1,22 @@
+name: 'build'
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'Dockerfile'
+
+jobs:
+  build:
+    name: 'Build'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          registry: ghcr.io
+          username: "gowerc"
+          password: ${{ secrets.PAT }}
+          repository: gowerc/pschecker
+          tags: latest
