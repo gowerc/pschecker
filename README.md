@@ -9,8 +9,6 @@ Current retailers checked are:
 - Argos
 - Currys
 
-Setup to only send notifications between 7am and 11pm. 
-
 ## Usage
 
 The project is provided as public Docker image hosted on GitHub, you can pull this and use it yourself (making sure to edit the Twilio environment variables for your account) by running the following:
