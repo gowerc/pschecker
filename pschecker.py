@@ -113,7 +113,7 @@ if __name__ == "__main__":
     driver = get_chrome_driver()
     results = {
         "Amazon": check_amazon(driver),
-        "Game": check_game(driver),
+        "Game": check_game(driver) and check_game(driver),
         "Currys": check_currys(driver),
         "Argos": check_argos(driver),
         "John Lewis": check_johnlewis(driver)
