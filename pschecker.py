@@ -5,7 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from datetime import datetime, time
 from twilio.rest import Client
 
 PAGETIMEOUT = 15
@@ -33,14 +32,6 @@ def send_message(msg):
         from_=os.environ['TWILIO_FROM_NUMBER'],
         to=os.environ['TWILIO_TO_NUMBER']
     )
-
-
-def is_time_between(begin_time, end_time):
-    check_time = datetime.utcnow().time()
-    if begin_time < end_time:
-        return check_time >= begin_time and check_time <= end_time
-    else:
-        return check_time >= begin_time or check_time <= end_time
 
 
 def check_amazon(driver):
@@ -121,8 +112,7 @@ if __name__ == "__main__":
     driver.close()
     pprint.pprint(results)
     FOUND_PLAYSTATION = any([j for i, j in results.items()])
-    CAN_SEND_MESSAGE = is_time_between(time(7, 00), time(23, 00))
-    if FOUND_PLAYSTATION and CAN_SEND_MESSAGE:
+    if FOUND_PLAYSTATION:
         RESULTS_STRING = "\n".join(["{} = {}".format(i, j) for i, j in results.items()])
         MESSAGE_STRING = "Found a PlayStation !\n" + RESULTS_STRING
         send_message(MESSAGE_STRING)
