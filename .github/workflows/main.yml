@@ -1,4 +1,4 @@
-name: 'check-for-ps5'
+name: 'check'
 
 on:
   schedule:
