@@ -1,8 +1,9 @@
+name: 'check'
 
 on:
   schedule:
   - cron: "*/30 23 * * *"
-
+  workflow_dispatch:
 
 jobs:
   main:
@@ -16,7 +17,7 @@ jobs:
       TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}
     steps:
     - uses: actions/checkout@v2
-    - runs: python3 pschecker.py
+    - run: python3 pschecker.py
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
