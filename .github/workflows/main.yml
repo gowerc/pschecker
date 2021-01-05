@@ -1,7 +1,7 @@
 name: check-for-ps
 on:
   schedule:
-    - cron: "*/30 7-22 * * *"
+    - cron: "*/30 23 * * *"
   workflow_dispatch:
 jobs:
   main:
