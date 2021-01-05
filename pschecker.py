@@ -9,6 +9,7 @@ from twilio.rest import Client
 
 PAGETIMEOUT = 15
 
+
 def save_as_file(driver, name):
     with open(name, "w") as fi:
         html = driver.page_source
@@ -16,7 +17,9 @@ def save_as_file(driver, name):
 
 
 def get_chrome_driver():
+    PROXY = "52.56.100.107:80"  # IP:PORT or HOST:PORT
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=%s' % PROXY)
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--window-size=1420,1080')
     chrome_options.add_argument('--headless')
