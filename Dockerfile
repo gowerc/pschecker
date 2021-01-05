@@ -21,4 +21,5 @@ ADD ./ /project
 # Install python dependencies
 RUN python3.9 -m pip install -r /project/requirements.txt
 
-CMD ["python3.9", "/project/pschecker.py"]
+WORKDIR /project/
+CMD ["python3.9", "pschecker.py"]

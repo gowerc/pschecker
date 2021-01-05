@@ -9,6 +9,11 @@ from twilio.rest import Client
 
 PAGETIMEOUT = 15
 
+def save_as_file(driver, name):
+    with open(name, "w") as fi:
+        html = driver.page_source
+        fi.write(html)
+
 
 def get_chrome_driver():
     chrome_options = webdriver.ChromeOptions()
@@ -42,7 +47,11 @@ def check_amazon(driver):
         )
         return False
     except TimeoutException:
+        driver.get_screenshot_as_file("screenshot.png")
         return True
+    finally:
+        save_as_file(driver, "log/amazon.html")
+
 
 
 def check_game(driver):
@@ -59,6 +68,8 @@ def check_game(driver):
         return False if game_text == "OUT OF STOCK" else True
     except TimeoutException:
         return True
+    finally:
+        save_as_file(driver, "log/game.html")
 
 
 def check_argos(driver):
@@ -75,6 +86,8 @@ def check_argos(driver):
         return True if argos_text == "ADD TO TROLLEY" else False
     except TimeoutException:
         return False
+    finally:
+        save_as_file(driver, "log/argos.html")
 
 
 def check_johnlewis(driver):
@@ -87,6 +100,8 @@ def check_johnlewis(driver):
         return False if "OUT OF STOCK" in jl_text else True
     except TimeoutException:
         return False
+    finally:
+        save_as_file(driver, "log/johnlewis.html")
 
 
 def check_currys(driver):
@@ -98,6 +113,8 @@ def check_currys(driver):
         return False if "NO RESULTS WERE FOUND FOR YOUR SEARCH" in element.text.upper() else True
     except TimeoutException:
         return False
+    finally:
+        save_as_file(driver, "log/currys.html")
 
 
 if __name__ == "__main__":

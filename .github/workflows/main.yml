@@ -6,10 +6,17 @@ on:
 jobs:
   main:
     runs-on: ubuntu-20.04
+    container:
+      image: docker://ghcr.io/gowerc/pschecker:latest
     steps:
-      - uses: docker://ghcr.io/gowerc/pschecker:latest
+      - uses: actions/checkout@v2
+      - runs: python3 pschecker.py
         env: 
-            TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-            TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-            TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
-            TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
+          TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: log/*.html
