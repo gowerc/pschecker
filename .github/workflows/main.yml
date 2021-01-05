@@ -22,3 +22,4 @@ jobs:
       with:
         name: logs
         path: log/*.html
+        retention-days: 3
