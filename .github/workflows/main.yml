@@ -18,7 +18,3 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - runs: python3 pschecker.py
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: log/*.html
