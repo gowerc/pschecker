@@ -17,16 +17,14 @@ def save_as_file(driver, name):
 
 
 def get_chrome_driver():
-    PROXY = "52.56.100.107:80"  # IP:PORT or HOST:PORT
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=%s' % PROXY)
+    chrome_options.add_argument('--proxy-server=%s' % get_proxy())
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--window-size=1420,1080')
+    chrome_options.add_argument('--window-size=1920,1080')
     chrome_options.add_argument('--headless')
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
     chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument("--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
     return webdriver.Chrome(options=chrome_options)
 
 
@@ -118,6 +116,12 @@ def check_currys(driver):
         return False
     finally:
         save_as_file(driver, "log/currys.html")
+
+
+def get_proxy():
+    # res = requests.get("http://pubproxy.com/api/proxy?format=txt")
+    # return res.text
+    return ""
 
 
 if __name__ == "__main__":
